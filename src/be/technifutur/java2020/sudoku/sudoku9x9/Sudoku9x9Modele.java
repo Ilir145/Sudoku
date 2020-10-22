@@ -6,8 +6,10 @@ public class Sudoku9x9Modele extends SudokuCommunModele {
 
     private char[] tabValide = {'1','2','3','4','5','6','7','8','9'};
 
-    protected Sudoku9x9Modele() {
-        super(9, 9);
+
+    public Sudoku9x9Modele() {
+        super(9,
+                9);
     }
 
     @Override

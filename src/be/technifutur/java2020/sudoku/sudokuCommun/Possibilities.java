@@ -1,16 +1,25 @@
 package javaLangage.primitif;
 
-public class TestPossibilities {
+public class Possibilities {
     public int data;
 
     public static void main(String[] args) {
-        this.data = 0b000000000; 
+        Possibilities test = new Possibilities();
+        test.data = 0b000000000;
 
+        test.add(5);
+        test.add(2);
+        test.add(7);
+        test.add(8);
 
+        System.out.println(Integer.toBinaryString(test.data));
 
-
-
-
+        test.remove(5);
+        test.remove(5);
+        test.add(2);
+        System.out.println(Integer.toBinaryString(test.data) + " " + test.size());
+        if(test.contains(7))
+            System.out.println(Integer.toBinaryString(test.data));
 
     }
     public boolean add(int ind){
@@ -36,11 +45,6 @@ public class TestPossibilities {
     }
 
     public int size(){
-        String tabData = Integer.toBinaryString(this.data);
-        int comp = 0;
-        for(int i = 0; i < tabData.length();i++){
-            if(tabData.charAt(i) == '1')comp++;
-        }
-        return comp;
+        return Integer.bitCount(this.data);
     }
 }

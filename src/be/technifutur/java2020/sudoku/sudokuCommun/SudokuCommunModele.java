@@ -6,8 +6,13 @@ public abstract class SudokuCommunModele {
     protected char[][] grille ;
     static private char EMPTY = 0;
 
+    public int getGrilleDim(){
+        return grille[0].length;
+    }
+
+
     protected SudokuCommunModele(int lig,int col){
-        grille = new char[lig][col];
+        this.grille = new char[lig][col];
     }
 
 
@@ -50,4 +55,5 @@ public abstract class SudokuCommunModele {
         }
         return rp;
     }
+
 }

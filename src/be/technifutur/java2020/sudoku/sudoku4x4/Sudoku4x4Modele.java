@@ -6,6 +6,8 @@ import be.technifutur.java2020.sudoku.sudokuCommun.SudokuCommunModele;
 public class Sudoku4x4Modele extends SudokuCommunModele {
     private char[] tabValide = {'1','2','3','4'};
 
+
+
     protected Sudoku4x4Modele() {
         super(4, 4);
     }

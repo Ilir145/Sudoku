@@ -3,6 +3,9 @@ package be.technifutur.java2020.sudoku.sudokuCommun;
 import be.technifutur.java2020.sudoku.sudoku4x4.User;
 import be.technifutur.java2020.sudoku.sudoku4x4.UserConsole;
 import be.technifutur.java2020.sudoku.sudoku4x4.UserTest;
+import be.technifutur.java2020.sudoku.sudoku9x9.Sudoku9x9;
+import be.technifutur.java2020.sudoku.sudoku9x9.Sudoku9x9Modele;
+import be.technifutur.java2020.sudoku.sudoku9x9.Sudoku9x9Vue;
 import be.technifutur.java2020.sudoku.sudokuEtoile.SudokuEtoileCtrl;
 import be.technifutur.java2020.sudoku.sudokuEtoile.SudokuEtoileModele;
 import be.technifutur.java2020.sudoku.sudokuEtoile.SudokuEtoileVue;
@@ -65,6 +68,7 @@ public class SudokuCommunCtrl {
         UserTest userT = new UserTest();
         ctrl.setFormatEncodage("(([1-2][0-9])|([1-9]))\\.(([1-2][0-9])|([1-9]))\\.[1-9]");
 
+        System.out.println(modele.getGrilleDim());
         ctrl.setVue(vue);
         ctrl.vue.setModele(modele);
         ctrl.vue.afficheGrille();

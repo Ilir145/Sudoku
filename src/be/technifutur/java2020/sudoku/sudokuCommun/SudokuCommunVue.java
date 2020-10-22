@@ -21,10 +21,10 @@ public abstract class SudokuCommunVue {
 
 
     public void afficheGrille(){
-        Character[] grille2 = new Character[(modele.tabValide().length)*(modele.tabValide().length)];
+        Character[] grille2 = new Character[(modele.getGrilleDim())*(modele.getGrilleDim())];
         int k = 0;
-        for(int i = 0; i < (modele.tabValide().length);i++){
-            for(int j = 0; j < (modele.tabValide().length);j++) {
+        for(int i = 0; i < (modele.getGrilleDim());i++){
+            for(int j = 0; j < (modele.getGrilleDim());j++) {
                 if (this.modele.dansGrille(i, j)) {
                     if (this.modele.getValue(i, j) != 0)
                         grille2[k] = this.modele.getValue(i, j);
