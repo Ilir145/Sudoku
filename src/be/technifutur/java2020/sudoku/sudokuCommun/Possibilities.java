@@ -1,27 +1,20 @@
-package javaLangage.primitif;
+package be.technifutur.java2020.sudoku.sudokuCommun;
+
+import java.util.Set;
 
 public class Possibilities {
-    public int data;
+    private int data;
 
-    public static void main(String[] args) {
-        Possibilities test = new Possibilities();
-        test.data = 0b000000000;
-
-        test.add(5);
-        test.add(2);
-        test.add(7);
-        test.add(8);
-
-        System.out.println(Integer.toBinaryString(test.data));
-
-        test.remove(5);
-        test.remove(5);
-        test.add(2);
-        System.out.println(Integer.toBinaryString(test.data) + " " + test.size());
-        if(test.contains(7))
-            System.out.println(Integer.toBinaryString(test.data));
-
+    public Possibilities(Set<Integer> initialValues) {
+        for(int val : initialValues){
+               add(val);
+        }
     }
+
+    public  Possibilities(int val){
+        data = (1 << val - 1);
+    }
+
     public boolean add(int ind){
         ind--;
         if(this.data == (this.data = (this.data | (1<<ind)))){
