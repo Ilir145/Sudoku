@@ -1,5 +1,6 @@
 package be.technifutur.java2020.sudoku.sudokuCommun;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -8,7 +9,7 @@ public class Area {
 
     private Possibilities possibilities;
     private AreaType type;
-    public  Set<Position> setDePositions;
+    private  Set<Position> setDePositions;
 
     public Area(int size,AreaType type,Position first) {
         possibilities = new Possibilities(size);
@@ -49,8 +50,13 @@ public class Area {
     }
 
     public Set<Position> getPositionSet(){
-        return this.setDePositions;
+        return Collections.unmodifiableSet(this.setDePositions);
     }
+
+    public AreaType getType() {
+        return type;
+    }
+
 
     public static void main(String[] args) {
         Area zone = new Area(9,AreaType.CARRE,new Position(3,3));
@@ -59,6 +65,23 @@ public class Area {
             System.out.println(p.toString());
         }
     }
+    //Méthode délégué de Possibilities -----------------------------------------
 
+    public boolean add(int ind) {
+        return possibilities.add(ind);
+    }
 
+    public boolean remove(int ind) {
+        return possibilities.remove(ind);
+    }
+
+    public boolean contains(int ind) {
+        return possibilities.contains(ind);
+    }
+
+    public int size() {
+        return possibilities.size();
+    }
+
+    //-----------------------------------------------------------------------------
 }

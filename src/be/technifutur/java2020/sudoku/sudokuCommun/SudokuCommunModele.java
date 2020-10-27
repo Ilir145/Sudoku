@@ -1,9 +1,10 @@
 package be.technifutur.java2020.sudoku.sudokuCommun;
 
 import java.util.EmptyStackException;
+import java.util.Map;
 
 public abstract class SudokuCommunModele {
-    protected char[][] grille ;
+    private Map<Position,Cell> grille;
     static private char EMPTY = 0;
 
     public int getGrilleDim(){
@@ -11,8 +12,8 @@ public abstract class SudokuCommunModele {
     }
 
 
-    protected SudokuCommunModele(int lig,int col){
-        this.grille = new char[lig][col];
+    protected SudokuCommunModele(Map<Position,Cell> grille){
+        this.grille = grille;
     }
 
 
@@ -41,7 +42,15 @@ public abstract class SudokuCommunModele {
             return false;
     }
 
-    public abstract boolean dansGrille(int ligne,int col);
+    public  boolean dansGrille(int ligne,int col){
+        return dansGrille(new Position(ligne,col));
+    }
+
+    private boolean dansGrille(Position position) {
+       return this.grille.keySet().contains(position);
+    }
+
+    ;
 
     public abstract char[] tabValide();
 
